@@ -1,47 +1,59 @@
-<x-guest-layout>
-    <!-- Session Status -->
-    <x-auth-session-status class="mb-4" :status="session('status')" />
+@extends('layouts.main')
 
-    <form method="POST" action="{{ route('login') }}">
-        @csrf
+@section('title', 'Login')
 
-        <!-- Email Address -->
-        <div>
-            <x-input-label for="email" :value="__('Email')" />
-            <x-text-input id="email" class="block mt-1 w-full" type="email" name="email" :value="old('email')" required autofocus autocomplete="username" />
-            <x-input-error :messages="$errors->get('email')" class="mt-2" />
+@section('content')
+    <section class="top">
+        <div class="top__container" style="background-image: url('images/top-bg.jpg');">
+            <div class="container">
+                <h2 class="top__title title">LOG IN</h2>
+                <div class="breadcrumbs">
+                    <ul class="breadcrumbs__list">
+                        <li class="breadcrumbs__item">
+                            <a class="breadcrumbs__link" href="/">Home</a>
+                        </li>
+                        <li class="breadcrumbs__item">
+                            <span class="breadcrumbs__link">Log in</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
         </div>
+    </section>
 
-        <!-- Password -->
-        <div class="mt-4">
-            <x-input-label for="password" :value="__('Password')" />
+    <section class="modal section">
+        <div class="container">
+            <div class="modal__links">
+                <a class="modal__link" href="{{ route('register') }}">REGISTER</a>
+                <a class="modal__link modal__link--active" href="{{ route('login') }}">LOGIN</a>
+            </div>
+            <form class="modal__form" method="POST" action="{{ route('login') }}">
+                @csrf
+                @if ($errors->has('email'))
+                    <div class="modal__error">
+                        {{ $errors->first('email') }}
+                    </div>
+                @endif
+                <label class="modal__label">
+                    Email address*
+                    <input class="modal__input" type="email" name="email" value="{{ old('email') }}" required>
 
-            <x-text-input id="password" class="block mt-1 w-full"
-                            type="password"
-                            name="password"
-                            required autocomplete="current-password" />
-
-            <x-input-error :messages="$errors->get('password')" class="mt-2" />
+                </label>
+                <label class="modal__label">
+                    Password*
+                    <input class="modal__input" type="password" name="password" required>
+                    @if ($errors->has('password'))
+                        <div class="modal__error">
+                            {{ $errors->first('password') }}
+                        </div>
+                    @endif
+                </label>
+                <label class="modal__label">
+                    <input type="checkbox" name="remember"> Remember me
+                </label>
+                <button class="modal__btn" type="submit">LOG IN</button>
+                <a class="modal__error" href="{{ route('password.request') }}">Lost your password?</a>
+            </form>
         </div>
-
-        <!-- Remember Me -->
-        <div class="block mt-4">
-            <label for="remember_me" class="inline-flex items-center">
-                <input id="remember_me" type="checkbox" class="rounded border-gray-300 text-indigo-600 shadow-sm focus:ring-indigo-500" name="remember">
-                <span class="ms-2 text-sm text-gray-600">{{ __('Remember me mazfaka') }}</span>
-            </label>
-        </div>
-
-        <div class="flex items-center justify-end mt-4">
-            @if (Route::has('password.request'))
-                <a class="underline text-sm text-gray-600 hover:text-gray-900 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500" href="{{ route('password.request') }}">
-                    {{ __('Forgot your password?') }}
-                </a>
-            @endif
-
-            <x-primary-button class="ms-3">
-                {{ __('Log in') }}
-            </x-primary-button>
-        </div>
-    </form>
-</x-guest-layout>
+    </section>
+@endsection

@@ -1,52 +1,70 @@
-<x-guest-layout>
-    <form method="POST" action="{{ route('register') }}">
-        @csrf
+@extends('layouts.main')
 
-        <!-- Name -->
-        <div>
-            <x-input-label for="name" :value="__('Name')" />
-            <x-text-input id="name" class="block mt-1 w-full" type="text" name="name" :value="old('name')" required autofocus autocomplete="name" />
-            <x-input-error :messages="$errors->get('name')" class="mt-2" />
-        </div>
+@section('title', 'Register')
 
-        <!-- Email Address -->
-        <div class="mt-4">
-            <x-input-label for="email" :value="__('Email')" />
-            <x-text-input id="email" class="block mt-1 w-full" type="email" name="email" :value="old('email')" required autocomplete="username" />
-            <x-input-error :messages="$errors->get('email')" class="mt-2" />
-        </div>
+@section('content')
+    <main class="main">
+        <section class="top">
+            <div class="top__container" style="background-image: url('images/top-bg.jpg');">
+                <div class="container">
+                    <h2 class="top__title title">REGISTER</h2>
+                    <div class="breadcrumbs">
+                        <ul class="breadcrumbs__list">
+                            <li class="breadcrumbs__item">
+                                <a class="breadcrumbs__link" href="index.html">Home</a>
+                            </li>
+                            <li class="breadcrumbs__item">
+                                <a class="breadcrumbs__link" href="#">Register</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
 
-        <!-- Password -->
-        <div class="mt-4">
-            <x-input-label for="password" :value="__('Password')" />
+        <section class="modal section">
+            <div class="container">
+                <div class="modal__links">
+                    <a class="modal__link modal__link--active" href="{{route('register')}}">REGISTER</a>
+                    <a class="modal__link" href="{{route('login')}}">LOGIN</a>
+                </div>
+                <form class="modal__form" action="{{ route('register') }}" method="POST">
+                    @csrf
+                    <label class="modal__label">
+                        Username* <input class="modal__input" name="name" type="text" value="{{ old('name') }}" required>
+                        @error('name')
+                        <div class="modal__error">{{ $message }}</div>
+                        @enderror
+                    </label>
+                    <label class="modal__label">
+                        Email address* <input class="modal__input" name="email" type="email" value="{{ old('email') }}" required>
+                        @error('email')
+                        <div class="modal__error">{{ $message }}</div>
+                        @enderror
+                    </label>
+                    <label class="modal__label">
+                        Password* <input class="modal__input" name="password" type="password" required>
+                        @error('password')
+                        <div class="modal__error">{{ $message }}</div>
+                        @enderror
+                    </label>
+                    <label class="modal__label">
+                        Confirm Password*
+                        <input class="modal__input" name="password_confirmation" type="password" required>
+                    </label>
+                    <p class="modal__text">A password will be sent to your email address.</p>
+                    <p class="modal__text">Your personal data will be used to support your experience throughout this website, to manage
+                        access to your account, and for other purposes described in our privacy policy.</p>
+                    <label class="modal__label">
+                        <input type="checkbox" name="agree"> Agree with Terms & Conditions
+                        @error('agree')
+                        <div class="modal__error">{{ $message }}</div>
+                        @enderror
+                    </label>
+                    <button class="modal__btn" type="submit">REGISTER</button>
+                </form>
+            </div>
+        </section>
+    </main>
+@endsection
 
-            <x-text-input id="password" class="block mt-1 w-full"
-                            type="password"
-                            name="password"
-                            required autocomplete="new-password" />
-
-            <x-input-error :messages="$errors->get('password')" class="mt-2" />
-        </div>
-
-        <!-- Confirm Password -->
-        <div class="mt-4">
-            <x-input-label for="password_confirmation" :value="__('Confirm Password')" />
-
-            <x-text-input id="password_confirmation" class="block mt-1 w-full"
-                            type="password"
-                            name="password_confirmation" required autocomplete="new-password" />
-
-            <x-input-error :messages="$errors->get('password_confirmation')" class="mt-2" />
-        </div>
-
-        <div class="flex items-center justify-end mt-4">
-            <a class="underline text-sm text-gray-600 hover:text-gray-900 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500" href="{{ route('login') }}">
-                {{ __('Already registered?') }}
-            </a>
-
-            <x-primary-button class="ms-4">
-                {{ __('Register') }}
-            </x-primary-button>
-        </div>
-    </form>
-</x-guest-layout>
