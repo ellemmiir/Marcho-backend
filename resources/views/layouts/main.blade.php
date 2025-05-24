@@ -19,10 +19,10 @@
                 </button>
                 <ul class="menu__list">
                     <li class="menu__list-item">
-                        <a class="menu__list-link" href="index.html">home</a>
+                        <a class="menu__list-link" href="/">home</a>
                     </li>
                     <li class="menu__list-item">
-                        <a class="menu__list-link" href="shop.html">shop</a>
+                        <a class="menu__list-link" href="{{route('items.index')}}">shop</a>
                     </li>
                     <li class="menu__list-item">
                         <a class="menu__list-link" href="#">page</a>
@@ -36,7 +36,7 @@
                 </ul>
             </nav>
             <div class="user-nav">
-                <a class="user-nav__link" href="#">
+                <a class="user-nav__link" href="/login">
                     <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20">
                         <path fill="#29282d" fill-rule="evenodd"
                               d="M1392.07,57.928a9.923,9.923,0,0,0-3.8-2.383,5.78,5.78,0,1,0-6.54,0A10.018,10.018,0,0,0,1375,65h1.56a8.44,8.44,0,0,1,16.88,0H1395A9.931,9.931,0,0,0,1392.07,57.928Zm-11.29-7.148A4.22,4.22,0,1,1,1385,55,4.222,4.222,0,0,1,1380.78,50.78Z"

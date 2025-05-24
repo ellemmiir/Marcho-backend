@@ -13,8 +13,8 @@ class ItemController extends Controller
      */
     public function index(Request $request)
     {
-        $allCategories = Category::pluck('name', 'id');
-        $allColors = Color::pluck('name', 'id');
+        $allCategories = Category::withCount('items')->get();
+        $allColors = Color::withCount('items')->get();
         $allSizes = Size::pluck('name', 'id');
         $sizes = $request->input('sizes', []); // Массив размеров
         $colors = $request->input('colors', []);
@@ -32,6 +32,7 @@ class ItemController extends Controller
             ->priceMax($maxPrice)
             ->filterSizes($sizes)
             ->filterColors($colors)
+            ->filterCategories($categories)
             ->paginate(10)
             ->appends($request->query());
 

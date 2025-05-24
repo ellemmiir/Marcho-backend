@@ -17,7 +17,7 @@ use App\Http\Controllers\ShopController;
 */
 
 Route::get('/', function () {
-    return view('index');
+    return view('main');
 });
 
 Route::get('/dashboard', function () {

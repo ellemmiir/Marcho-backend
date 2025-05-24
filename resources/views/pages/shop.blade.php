@@ -63,16 +63,16 @@
 
                         <div class="filter-color filter__item">
                             <h3 class="filter__title">Color Filter</h3>
-                            @foreach($allColors as $id => $name)
+                            @foreach($allColors as $colors)
                                 <label class="filter-color__label">
-                                    <span class="filter-color__text">{{$name}} (15)</span>
+                                    <span class="filter-color__text">{{$colors->name}} ({{$colors->items_count}})</span>
                                     <div class="filter-color__box">
                                         <input class="filter-color__input"
                                                type="checkbox"
                                                name="colors[]"
-                                               value="{{$id}}"
-                                            {{ in_array($id, request()->input('colors', [])) ? 'checked' : '' }}>
-                                        <span class="filter-color__checkbox filter-color__checkbox--{{lcfirst($name)}}"></span>
+                                               value="{{$colors->id}}"
+                                            {{ in_array($colors->id, request()->input('colors', [])) ? 'checked' : '' }}>
+                                        <span class="filter-color__checkbox filter-color__checkbox--{{lcfirst($colors->name)}}"></span>
                                     </div>
                                 </label>
                             @endforeach
@@ -94,48 +94,19 @@
                         </div>
                         <div class="filter-category filter__item">
                             <h3 class="filter__title">CATEGORY</h3>
+                            @foreach($allCategories as $category)
                                 <label class="filter-category__label">
-                                    <input class="filter-category__input" type="checkbox">
+                                    <input class="filter-category__input"
+                                           type="checkbox"
+                                           name="categories[]"
+                                           value="{{$category->id}}"
+                                           {{ in_array($category->id, request()->input('categories', [])) ? 'checked' : '' }}>
                                     <div class="filter-category__checkbox">
-                                        <span>Woman</span>
-                                        <span>48</span>
+                                        <span>{{$category->name}}</span>
+                                        <span>{{$category->items_count}}</span>
                                     </div>
                                 </label>
-                                <label class="filter-category__label">
-                                    <input class="filter-category__input" type="checkbox">
-                                    <div class="filter-category__checkbox">
-                                        <span>Man</span>
-                                        <span>30</span>
-                                    </div>
-                                </label>
-                                <label class="filter-category__label">
-                                    <input class="filter-category__input" type="checkbox" checked>
-                                    <div class="filter-category__checkbox">
-                                        <span>Sale products</span>
-                                        <span>92</span>
-                                    </div>
-                                </label>
-                                <label class="filter-category__label">
-                                    <input class="filter-category__input" type="checkbox">
-                                    <div class="filter-category__checkbox">
-                                        <span>Fashion</span>
-                                        <span>121</span>
-                                    </div>
-                                </label>
-                                <label class="filter-category__label">
-                                    <input class="filter-category__input" type="checkbox">
-                                    <div class="filter-category__checkbox">
-                                        <span>Hot dresses</span>
-                                        <span>52</span>
-                                    </div>
-                                </label>
-                                <label class="filter-category__label">
-                                    <input class="filter-category__input" type="checkbox">
-                                    <div class="filter-category__checkbox">
-                                        <span>Accessories</span>
-                                        <span>88</span>
-                                    </div>
-                                </label>
+                            @endforeach
                         </div>
 
                         <div class="filter-popular filter__item">

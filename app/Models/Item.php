@@ -40,6 +40,13 @@ class Item extends Model
         }
     }
 
+    public function scopeFilterCategories($query, $category)
+    {
+        if(!empty($category)){
+            return $query->whereIn('category_id', $category);
+        }
+    }
+
     public function category()
     {
         return $this->belongsTo(Category::class);
