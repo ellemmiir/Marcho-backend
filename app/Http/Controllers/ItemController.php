@@ -61,7 +61,9 @@ class ItemController extends Controller
      */
     public function show(string $id)
     {
-        //
+        $item = Item::findOrFail($id);
+
+        return view('pages.view-item', compact('item'));
     }
 
     /**

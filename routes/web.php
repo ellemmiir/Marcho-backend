@@ -4,6 +4,7 @@ use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ItemController;
 use App\Http\Controllers\ShopController;
+use App\Http\Controllers\PostController;
 
 /*
 |--------------------------------------------------------------------------
@@ -32,6 +33,12 @@ Route::middleware('auth')->group(function () {
 
 Route::get('/shop', [ShopController::class, 'index']);
 
-Route::get('/shop', [ItemController::class, 'index'])->name('items.index');
+Route::resource('shop', ItemController::class)->names('items');
+
+Route::resource('blog', PostController::class);
+
+Route::get('/contact', function () {
+    return view('pages.contact');
+});
 
 require __DIR__.'/auth.php';

@@ -5,14 +5,14 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>@yield('title')</title>
-    <link rel="stylesheet" href="css/style.min.css">
+    <link rel="stylesheet" href="/css/style.min.css">
 </head>
 <body>
 <header class="header">
     <div class="container">
         <div class="header__inner">
             <a class="logo" href="index.html">
-                <img class="logo__img" src="images/logo.png" alt="logo">
+                <img class="logo__img" src="/images/logo.png" alt="logo">
             </a>
             <nav class="menu">
                 <button class="menu__btn">
@@ -28,10 +28,10 @@
                         <a class="menu__list-link" href="#">page</a>
                     </li>
                     <li class="menu__list-item">
-                        <a class="menu__list-link" href="#">blog</a>
+                        <a class="menu__list-link" href="/blog">blog</a>
                     </li>
                     <li class="menu__list-item">
-                        <a class="menu__list-link" href="#">contact</a>
+                        <a class="menu__list-link" href="/contact">contact</a>
                     </li>
                 </ul>
             </nav>
@@ -243,6 +243,73 @@
         </div>
     </div>
 </footer>
-<script src="js/main.js"></script>
+<script src="/js/main.js"></script>
+<script src="https://maps.googleapis.com/maps/api/js?key=&callback=initMap&v=weekly" async></script>
+<script>
+    let map;
+    function initMap() {
+        map = new google.maps.Map(document.getElementById("map"), {
+            center: {
+                lat: 40.78542106333155,
+                lng: -74.1696084497794
+            },
+            zoom: 10,
+            styles: [
+                {
+                    "featureType": "all",
+                    "elementType": "labels.text",
+                    "stylers": [
+                        {
+                            "color": "#878787"
+                        }
+                    ]
+                },
+                {
+                    "featureType": "all",
+                    "elementType": "labels.text.stroke",
+                    "stylers": [
+                        {
+                            "visibility": "off"
+                        }
+                    ]
+                },
+                {
+                    "featureType": "landscape",
+                    "elementType": "all",
+                    "stylers": [
+                        {
+                            "color": "#f9f5ed"
+                        }
+                    ]
+                },
+                {
+                    "featureType": "road.highway",
+                    "elementType": "all",
+                    "stylers": [
+                        {
+                            "color": "#f5f5f5"
+                        }
+                    ]
+                }, {
+                    "featureType": "road.highway",
+                    "elementType": "geometry.stroke",
+                    "stylers": [
+                        {
+                            "color": "#c9c9c9"
+                        }
+                    ]
+                }, {
+                    "featureType": "water",
+                    "elementType": "all",
+                    "stylers": [
+                        {
+                            "color": "#aee0f4"
+                        }
+                    ]
+                }
+            ]
+        });
+    }
+</script>
 </body>
 </html>
