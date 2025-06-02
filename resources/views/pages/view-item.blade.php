@@ -5,7 +5,7 @@
 @section('content')
     <main class="main">
         <section class="top">
-            <div class="top__container" style="background-image: url('images/top-bg.jpg');">
+            <div class="top__container" style="background-image: url('/images/top-bg.jpg');">
                 <div class="container">
                     <h2 class="top__title title">PRODUCT</h2>
                     <div class="breadcrumbs">
@@ -14,7 +14,7 @@
                                 <a class="breadcrumbs__link" href="index.html">Home</a>
                             </li>
                             <li class="breadcrumbs__item">
-                                <a class="breadcrumbs__link" href="#">Product</a>
+                                <a class="breadcrumbs__link" href="#">{{$item->name}}</a>
                             </li>
                         </ul>
                     </div>
@@ -28,30 +28,30 @@
                         <div class="product-one__slide product-slide">
                             <div class="product-slide__thumb">
                                 <div class="product-slide__thumb-item">
-                                    <img src="images/product/item/1.jpg" alt="">
+                                    <img src="/images/product/item/1.jpg" alt="">
                                 </div>
                                 <div class="product-slide__thumb-item">
-                                    <img src="images/product/item/1.jpg" alt="">
+                                    <img src="/images/product/item/1.jpg" alt="">
                                 </div>
                                 <div class="product-slide__thumb-item">
-                                    <img src="images/product/item/1.jpg" alt="">
+                                    <img src="/images/product/item/1.jpg" alt="">
                                 </div>
                                 <div class="product-slide__thumb-item">
-                                    <img src="images/product/item/1.jpg" alt="">
+                                    <img src="/images/product/item/1.jpg" alt="">
                                 </div>
                             </div>
                             <div class="product-slide__big">
                                 <div class="product-slide__big-item">
-                                    <img src="images/product/item/1.jpg" alt="">
+                                    <img src="/images/product/item/1.jpg" alt="">
                                 </div>
                                 <div class="product-slide__big-item">
-                                    <img src="images/product/item/1.jpg" alt="">
+                                    <img src="/images/product/item/1.jpg" alt="">
                                 </div>
                                 <div class="product-slide__big-item">
-                                    <img src="images/product/item/1.jpg" alt="">
+                                    <img src="/images/product/item/1.jpg" alt="">
                                 </div>
                                 <div class="product-slide__big-item">
-                                    <img src="images/product/item/1.jpg" alt="">
+                                    <img src="/images/product/item/1.jpg" alt="">
                                 </div>
                             </div>
                         </div>
