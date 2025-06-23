@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Item;
+use App\Models\Post;
 use Illuminate\Http\Request;
 
 class ShopController extends Controller
@@ -12,11 +13,9 @@ class ShopController extends Controller
      */
     public function index()
     {
-        $items = Item::latest()->get();
-        // Цены по факту из базы, с учётом COALESCE
-        $realMin = Item::selectRaw('MIN(COALESCE(new_price, old_price)) as min_price')->value('min_price');
-        $realMax = Item::selectRaw('MAX(COALESCE(new_price, old_price)) as max_price')->value('max_price');
-        return view('pages.shop', compact('items', 'realMin', 'realMax'));
+        $lastThreePosts = Post::latest()->take(3)->get();
+
+        return view('main', compact('lastThreePosts'));
     }
 
     /**

@@ -11,10 +11,10 @@
                     <div class="breadcrumbs">
                         <ul class="breadcrumbs__list">
                             <li class="breadcrumbs__item">
-                                <a class="breadcrumbs__link" href="index.html">Home</a>
+                                <a class="breadcrumbs__link" href="/blog">Blog</a>
                             </li>
                             <li class="breadcrumbs__item">
-                                <a class="breadcrumbs__link" href="#">Blog one</a>
+                                <a class="breadcrumbs__link" href="#">{{$post->title}}</a>
                             </li>
                         </ul>
                     </div>
@@ -29,22 +29,20 @@
                         <div class="blog-one__text">
                             <ul class="blog-one__info">
                                 <li class="blog-one__info-item">
-                                    <span class="blog-one__info-link" href="#">16 February, 2020</span>
+                                    <span class="blog-one__info-link" href="#">{{$post->created_at}}</span>
                                 </li>
                                 <li class="blog-one__info-item">
                                     <a class="blog-one__info-link blog-one__info-link--comment" href="#">3 comments</a>
                                 </li>
                                 <li class="blog-one__info-item">
-                                    <a class="blog-one__info-link blog-one__info-link--author" href="#">By Admin</a>
+                                    <a class="blog-one__info-link blog-one__info-link--author" href="#">By {{$post->user->name}}</a>
                                 </li>
                             </ul>
                             <h4>
-                                In Particular The Global World Of Lorem Ipsum Asap Tempor
+                                {{$post->title}}
                             </h4>
                             <p>
-                                Lorem ipsum dolor siit amet, consectetur adiscing elit, sed do eiusmod tempor incididunt more utmm labore et dolore
-                                magna aliqua. Quis ipsum suspendisse ultrices gravida. Risus commodo ecenas accumsan lacus vel facilisis. Quis ipsum
-                                suspenidisse ultrices gravida. Risus comdouma viverra more maecenas accumsan lacus vel facilisis.
+                                {{$post->content}}
                             </p>
                             <blockquote>
                                 Lorem ipsum dolor sit amet, consectetur adipiscing elt, sed does eiusmod tempor incididunt ut labore et dolore magna

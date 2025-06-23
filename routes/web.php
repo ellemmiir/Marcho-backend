@@ -17,9 +17,7 @@ use App\Http\Controllers\PostController;
 |
 */
 
-Route::get('/', function () {
-    return view('main');
-});
+Route::get('/', [ShopController::class, 'index']);
 
 Route::get('/dashboard', function () {
     return view('dashboard');
@@ -31,7 +29,6 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
-Route::get('/shop', [ShopController::class, 'index']);
 
 Route::resource('shop', ItemController::class)->names('items');
 

@@ -804,20 +804,20 @@
                 <h3 class="title">From Our Blog</h3>
                 <p class="text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmodmoe tempor incididunt ut labore et dolore aliqua.</p>
                 <div class="blog__items">
-
-                    <div class="blog__item">
-                        <a class="blog__item-imglink" href="blog-one.html">
+                    @foreach($lastThreePosts as $post)
+                        <div class="blog__item">
+                        <a class="blog__item-imglink" href="blog/{{$post->id}}">
                             <img class="blog__img" src="images/blog/1.jpg" alt="blog image">
                         </a>
                         <div class="blog__item-box">
                             <div class="blog-box">
-                                <a class="blog-box__author" href="#">By Admin</a>
-                                <div class="blog-box__date">10 January, 2020</div>
+                                <a class="blog-box__author" href="#">By {{$post->user->name}}</a>
+                                <div class="blog-box__date">{{$post->created_at->format('d-m-Y')}}</div>
                             </div>
                             <a class="blog__item-titlelink" href="blog-one.html">
-                                <h4 class="blog__item-title">Our Apps User Use Mobile On His Mobile</h4>
+                                <h4 class="blog__item-title">{{$post->title}}</h4>
                             </a>
-                            <a class="blog__item-link" href="blog-one.html">Read More
+                            <a class="blog__item-link" href="blog/{{$post->id}}">Read More
                                 <svg width="10" height="8" viewbox="0 0 10 8">
                                     <path fill="#8d8d8d" fill-rule="evenodd"
                                           d="M1310.84,6130.62l-3.61-3.47a0.582,0.582,0,0,0-.78,0l-0.32.32a0.485,0.485,0,0,0-.16.37,0.507,0.507,0,0,0,.16.38l2.1,2.03h-6.69a0.519,0.519,0,0,0-.54.51v0.45a0.544,0.544,0,0,0,.54.54h6.72l-2.13,2.04a0.508,0.508,0,0,0,0,.74l0.32,0.32a0.61,0.61,0,0,0,.39.15,0.57,0.57,0,0,0,.39-0.16l3.61-3.47a0.523,0.523,0,0,0,.16-0.37,0.546,0.546,0,0,0-.16-0.38"
@@ -826,50 +826,8 @@
                             </a>
                         </div>
                     </div>
+                    @endforeach
 
-                    <div class="blog__item">
-                        <a class="blog__item-imglink" href="blog-one.html">
-                            <img class="blog__img" src="images/blog/2.jpg" alt="blog image">
-                        </a>
-                        <div class="blog__item-box">
-                            <div class="blog-box">
-                                <a class="blog-box__author" href="#">By Admin</a>
-                                <div class="blog-box__date">10 January, 2020</div>
-                            </div>
-                            <a class="blog__item-titlelink" href="blog-one.html">
-                                <h4 class="blog__item-title">Our Apps User Use Mobile On His Mobile</h4>
-                            </a>
-                            <a class="blog__item-link" href="blog-one.html">Read More
-                                <svg width="10" height="8" viewbox="0 0 10 8">
-                                    <path fill="#8d8d8d" fill-rule="evenodd"
-                                          d="M1310.84,6130.62l-3.61-3.47a0.582,0.582,0,0,0-.78,0l-0.32.32a0.485,0.485,0,0,0-.16.37,0.507,0.507,0,0,0,.16.38l2.1,2.03h-6.69a0.519,0.519,0,0,0-.54.51v0.45a0.544,0.544,0,0,0,.54.54h6.72l-2.13,2.04a0.508,0.508,0,0,0,0,.74l0.32,0.32a0.61,0.61,0,0,0,.39.15,0.57,0.57,0,0,0,.39-0.16l3.61-3.47a0.523,0.523,0,0,0,.16-0.37,0.546,0.546,0,0,0-.16-0.38"
-                                          transform="translate(-1301 -6127)" />
-                                </svg>
-                            </a>
-                        </div>
-                    </div>
-
-                    <div class="blog__item">
-                        <a class="blog__item-imglink" href="blog-one.html">
-                            <img class="blog__img" src="images/blog/3.jpg" alt="blog image">
-                        </a>
-                        <div class="blog__item-box">
-                            <div class="blog-box">
-                                <a class="blog-box__author" href="#">By Admin</a>
-                                <div class="blog-box__date">10 January, 2020</div>
-                            </div>
-                            <a class="blog__item-titlelink" href="blog-one.html">
-                                <h4 class="blog__item-title">Our Apps User Use Mobile On His Mobile</h4>
-                            </a>
-                            <a class="blog__item-link" href="blog-one.html">Read More
-                                <svg width="10" height="8" viewbox="0 0 10 8">
-                                    <path fill="#8d8d8d" fill-rule="evenodd"
-                                          d="M1310.84,6130.62l-3.61-3.47a0.582,0.582,0,0,0-.78,0l-0.32.32a0.485,0.485,0,0,0-.16.37,0.507,0.507,0,0,0,.16.38l2.1,2.03h-6.69a0.519,0.519,0,0,0-.54.51v0.45a0.544,0.544,0,0,0,.54.54h6.72l-2.13,2.04a0.508,0.508,0,0,0,0,.74l0.32,0.32a0.61,0.61,0,0,0,.39.15,0.57,0.57,0,0,0,.39-0.16l3.61-3.47a0.523,0.523,0,0,0,.16-0.37,0.546,0.546,0,0,0-.16-0.38"
-                                          transform="translate(-1301 -6127)" />
-                                </svg>
-                            </a>
-                        </div>
-                    </div>
                 </div>
             </div>
         </section>

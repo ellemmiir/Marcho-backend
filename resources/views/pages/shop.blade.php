@@ -194,7 +194,7 @@
                             @foreach($items as $item)
                             <div class="product-item {{$item->new_price ? 'product-item--sale' : ''}}">
                                 <div class="product-item__top-box top-box">
-                                    <a href="product.html" class="top-box__img-link">
+                                    <a href="shop/{{$item->id}}" class="top-box__img-link">
                                         <img class="top-box__img" src="images/product/1.jpg" alt="product">
                                     </a>
                                     <div class="top-box__link-box">
@@ -213,7 +213,7 @@
                                 <div class="product-item__bottom-box bottom-box">
                                     <div class="bottom-box__wrapper">
                                         <div class="bottom-box__star star" data-rateyo-rating='4.7'></div>
-                                        <a href="product.html" class="bottom-box__title-link">
+                                        <a href="shop/{{$item->id}}" class="bottom-box__title-link">
                                             <h4 class="bottom-box__title">{{$item->name}}</h4>
                                         </a>
                                         @if($item->new_price)

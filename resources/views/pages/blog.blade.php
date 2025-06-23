@@ -33,7 +33,7 @@
                             </a>
                             <div class="blog-page__item-box">
                                 <h4 class="blog-page__item-title">
-                                    <a href="blog-one.html" class="blog-page__item-link">
+                                    <a href="blog/{{$post->id}}" class="blog-page__item-link">
                                         {{$post->title}}
                                     </a>
                                 </h4>
